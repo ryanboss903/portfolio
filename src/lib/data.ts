@@ -26,6 +26,8 @@ export const personalInfo = {
     bio: "Full Stack Software Engineer and Startup CTO with a track record of architecting high-throughput SaaS platforms, AI-driven intelligence engines, and scalable digital marketplaces. Bridging deep technical rigor with sleek, high-end digital aesthetics.",
     email: "ryanochieng793@gmail.com",
     altEmail: "ryanochieng793@yahoo.com",
+    phone: "+254710428432",
+    whatsapp: "https://wa.me/254710428432",
     status: "Available for CTO Advisory & Engineering Contracts",
     location: "Nairobi, Kenya • Remote Global",
 };
@@ -180,8 +182,9 @@ export const experiences = [
 ];
 
 export const socials = [
-    { name: "GitHub", url: "https://github.com/ryanochieng" },
+    { name: "GitHub", url: "https://github.com/ryanboss903" },
+    { name: "WhatsApp", url: "https://wa.me/254710428432" },
     { name: "LinkedIn", url: "https://linkedin.com/in/ryanochieng" },
-    { name: "Twitter/X", url: "https://twitter.com/ryanochieng" },
-    { name: "Instagram", url: "https://instagram.com/ryanochieng" },
+    { name: "Twitter/X", url: "https://x.com/Ryan56404732" },
+    { name: "Instagram", url: "https://instagram.com/th.eonly.ryan" },
 ];

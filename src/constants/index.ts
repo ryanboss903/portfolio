@@ -84,7 +84,12 @@ export const Socials = [
     {
         name: "GitHub",
         src: "https://skillicons.dev/icons?i=github",
-        url: "https://github.com/ryanochieng",
+        url: "https://github.com/ryanboss903",
+    },
+    {
+        name: "WhatsApp",
+        src: "https://skillicons.dev/icons?i=whatsapp",
+        url: "https://wa.me/254710428432",
     },
     {
         name: "LinkedIn",
@@ -94,11 +99,11 @@ export const Socials = [
     {
         name: "Twitter/X",
         src: "https://skillicons.dev/icons?i=twitter",
-        url: "https://twitter.com/ryanochieng",
+        url: "https://x.com/Ryan56404732",
     },
     {
         name: "Instagram",
         src: "https://skillicons.dev/icons?i=instagram",
-        url: "https://instagram.com/ryanochieng",
+        url: "https://instagram.com/th.eonly.ryan",
     },
 ];

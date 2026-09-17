@@ -61,9 +61,20 @@ export default function Footer() {
             
             <a 
               href={`mailto:${personalInfo.altEmail}`} 
-              className="font-display font-medium text-lg sm:text-xl md:text-2xl text-background/80 hover:text-accent-lime transition-colors block mb-6 break-all sm:break-normal"
+              className="font-display font-medium text-lg sm:text-xl md:text-2xl text-background/80 hover:text-accent-lime transition-colors block mb-4 break-all sm:break-normal"
             >
               {personalInfo.altEmail}
+            </a>
+
+            <a 
+              href={personalInfo.whatsapp}
+              target="_blank"
+              rel="noreferrer" 
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-background/10 hover:bg-background/20 text-background font-mono text-xs w-fit mb-6 transition-colors border border-background/15 group"
+            >
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span>WhatsApp: {personalInfo.phone}</span>
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
             </a>
 
             <div className="p-4 rounded-xl bg-background/5 border border-background/10 max-w-lg">
