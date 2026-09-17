@@ -1,26 +1,166 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: #0a0a0a;
+  --color-foreground: #f0f0f0;
+  
+  --color-accent-lime: #ccff00;
+  --color-accent-orange: #ff5e00;
+  
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-syne);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #f0f0f0;
+    --accent-lime: #ccff00;
+    --accent-orange: #ff5e00;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    cursor: none; /* Hide default cursor for custom cursor */
+  }
+
+  /* Only hide cursor on non-touch devices */
+  @media (pointer: coarse) {
+    body {
+      cursor: auto;
+    }
+  }
+
+  ::selection {
+    background: var(--accent-lime);
+    color: #000;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 1px var(--foreground);
+    color: transparent;
+  }
+  
+  .text-outline-accent {
+    -webkit-text-stroke: 1px var(--accent-lime);
+    color: transparent;
+  }
+  
+  .text-outline-orange {
+    -webkit-text-stroke: 1px var(--accent-orange);
+    color: transparent;
+  }
+
+  .clip-text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .chonky-underline-lime {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+  }
+  .chonky-underline-lime::after {
+    content: "";
+    position: absolute;
+    bottom: 0.05em;
+    left: 0;
+    width: 100%;
+    height: 0.35em;
+    background: linear-gradient(90deg, var(--accent-lime), rgba(204, 255, 0, 0.2));
+    z-index: -1;
+    border-radius: 2px;
+  }
+
+  .chonky-underline-orange {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+  }
+  .chonky-underline-orange::after {
+    content: "";
+    position: absolute;
+    bottom: 0.05em;
+    left: 0;
+    width: 100%;
+    height: 0.35em;
+    background: linear-gradient(90deg, var(--accent-orange), rgba(255, 94, 0, 0.2));
+    z-index: -1;
+    border-radius: 2px;
+  }
+
+  .code-editor-style {
+    border-left: 2px solid rgba(204, 255, 0, 0.4);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .code-editor-style::before {
+    content: "<h3>";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: rgba(204, 255, 0, 0.6);
+    margin-bottom: 0.35rem;
+  }
+  .code-editor-style::after {
+    content: "</h3>";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: rgba(204, 255, 0, 0.6);
+    margin-top: 0.35rem;
+  }
+}
+
+/* Lenis Scroll Smooth */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Infinite Marquee Ticker */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
